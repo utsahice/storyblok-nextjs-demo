@@ -1,10 +1,12 @@
-import { StoryblokComponent } from "@storyblok/react"
+import { storyblokEditable } from "@storyblok/react/rsc";
 
-export const Testimonial  = (params:any)=>{
-    return(
-        <section>
-        <h1>{params.blok.name}</h1>
-        <p>{params.blok.comment}</p>
-        </section>
-    )
-}
+export const Testimonial = (params: any) => {
+  return (
+    <div className="bg-white p-8 rounded-sm shadow">
+      <p className="text-xl leading-relaxed text-gray-700">
+        {params.blok.comment}
+      </p>
+      <p className="text-lg font-semibold mt-6">{params.blok.name}</p>
+    </div>
+  );
+};

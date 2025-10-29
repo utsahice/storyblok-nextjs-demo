@@ -1,6 +1,5 @@
 import {
   StoryblokServerComponent,
-  storyblokEditable,
 } from "@storyblok/react/rsc";
 
 export const Grid = (params: any) => {
