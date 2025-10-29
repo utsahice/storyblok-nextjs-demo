@@ -1,10 +1,21 @@
-import { StoryblokComponent } from "@storyblok/react"
+import {
+  StoryblokServerComponent,
+  storyblokEditable,
+} from "@storyblok/react/rsc";
 
-export const Grid = (params:any)=>{
-    return(
-        <section>
-        <h1>{params.blok.headline}</h1>
-        <p>{params.blok.recommended_tours}</p>
-        </section>
-    )
-}
+export const Grid = (params: any) => {
+  return (
+    <section className="bg-blue-100 py-16">
+      <div className="container mx-auto w-full px-4">
+        <h2 className="text-3xl md:text-4xl font-bold">
+          {params.blok.headline}
+        </h2>
+        <div className="grid md:grid-flow-col auto-cols-fr mt-12 gap-8">
+          {params.blok.items.map((blok: any) => (
+            <StoryblokServerComponent blok={blok} key={blok._uid} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
