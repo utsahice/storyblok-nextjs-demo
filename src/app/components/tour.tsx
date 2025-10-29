@@ -1,4 +1,4 @@
 const Tour = (props:any) =>{
-    return <pre>{JSON.stringify(props,null,2)}</pre>
+    return <h1>{props.blok.name}</h1>
 }
 export default Tour;

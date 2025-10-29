@@ -1,9 +1,18 @@
-import Image from "next/image";
+import { getStoryblokApi , StoryblokStory } from "@storyblok/react/rsc";
 
-export default function Home() {
+
+const fetchHomePage = async ()=>{
+  const client = getStoryblokApi();
+  const response = await client.getStory(`home`,{
+    version:"draft",
+    resolve_relations:"recommended_tours.tours"
+  });
+  return response.data.story;
+}
+const Home= async() => {
+  const story = await fetchHomePage();
   return (
-    <div>
-      <h1>Hello </h1>
-    </div>
+    <StoryblokStory story ={story}/>
   );
 }
+export default Home;
