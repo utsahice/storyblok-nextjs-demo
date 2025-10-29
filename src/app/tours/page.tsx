@@ -1,4 +1,33 @@
-const TourPage = () =>{
-    return <div>Tour Page</div>;
+import { getStoryblokApi , StoryblokStory } from "@storyblok/react/rsc";
+import { RecommendedTour } from "../components/recomandedtour";
+
+
+const fetchToursPage = async ()=>{
+  const client = getStoryblokApi();
+  const response = await client.getStory(`tours`,{
+    version:"draft",
+    resolve_relations:"recommended_tours.tours"
+  });
+  return response.data.story;
 }
-export default TourPage;
+const fetchAllTours = async() =>{
+    const client = getStoryblokApi();
+  const response = await client.getStories({
+    content_type:"tour",
+    version: "draft"
+  });
+  return response.data.stories;
+}
+const Tours= async() => {
+  const story = await fetchToursPage();
+  const tours = await fetchAllTours();
+  return (
+    <div>
+    <StoryblokStory story ={story}/>
+        {tours.map((tour)=>(
+          <RecommendedTour story={tour} key={tour.content._uid} />
+        ))}
+    </div>
+  );
+}
+export default Tours;
