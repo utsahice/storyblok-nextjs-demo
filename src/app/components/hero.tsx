@@ -1,7 +1,10 @@
-import { storyblokEditable } from "@storyblok/react"
+import { storyblokEditable } from '@storyblok/react'
 export const Hero = (params: any) => {
   return (
-    <section className='container mx-auto px-4 w-full pt-32 pb-16'  {...storyblokEditable(params.blok)}>
+    <section
+      className='container mx-auto px-4 w-full pt-32 pb-16'
+      {...storyblokEditable(params.blok)}
+    >
       <h1 className='text-center text-5xl md:text-7xl font-bold'>
         {params.blok.headline}
       </h1>

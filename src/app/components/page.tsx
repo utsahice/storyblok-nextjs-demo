@@ -1,4 +1,4 @@
-import { StoryblokComponent , storyblokEditable } from "@storyblok/react";
+import { StoryblokComponent, storyblokEditable } from '@storyblok/react'
 
 export default function Page(params: any) {
   return (
@@ -7,5 +7,5 @@ export default function Page(params: any) {
         <StoryblokComponent blok={blok} key={blok._uid} />
       ))}
     </main>
-  );
+  )
 }

@@ -13,7 +13,10 @@ export const metadata: Metadata = {
 const cachedFetch = (input: any, init?: any): Promise<Response> => {
   return fetch(input, {
     ...init,
-    cache: process.env.NEXT_PUBLIC_NODE_ENV==='development'?"no-store":"force-cache",
+    cache:
+      process.env.NEXT_PUBLIC_NODE_ENV === 'development'
+        ? 'no-store'
+        : 'force-cache',
   })
 }
 storyblokInit({
@@ -33,7 +36,7 @@ export default function RootLayout({
       <html lang='en'>
         <body className='{inter.className}'>
           <header>
-            <nav className="container mx-auto px-4 w-full py-8 flex justify-between">
+            <nav className='container mx-auto px-4 w-full py-8 flex justify-between'>
               <Link href={'/'}>Home</Link>
               <Link href={'/tours'}>Tour</Link>
             </nav>
