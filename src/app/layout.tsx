@@ -16,13 +16,6 @@ const cachedFetch = (input: any, init?: any): Promise<Response> => {
     cache: process.env.NODE_ENV==='development'?"no-store":"force-cache",
   })
 }
-storyblokInit({
-  accessToken: process.env.STORYBLOK_API_TOKEN,
-  use: [apiPlugin],
-  apiOptions: {
-    fetch: cachedFetch,
-  },
-})
 export default function RootLayout({
   children,
 }: Readonly<{
