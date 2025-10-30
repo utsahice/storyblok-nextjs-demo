@@ -8,9 +8,12 @@ const Tour = (props: any) => {
         {props.blok.introduction}
       </p>
       <div
-        className='prose md:lg mt-16 max-w-auto'
-        dangerouslySetInnerHTML={{ __html: renderRichText(props.blok.body) }}
-      ></div>
+  className="prose md:lg mt-16 max-w-auto"
+  dangerouslySetInnerHTML={{
+    __html: renderRichText(props.blok.body) || "",
+  }}
+></div>
+
     </main>
   )
 }

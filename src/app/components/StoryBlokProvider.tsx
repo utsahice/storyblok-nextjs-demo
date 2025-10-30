@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 import { storyblokInit } from '@storyblok/react/rsc'
 import Tour from '@/app/components/tour'
-import { Page } from './page'
+import Page  from './page'
 import { Hero } from './hero'
 import { Grid } from './grid'
 import { features } from 'process'
