@@ -33,7 +33,7 @@ export default function RootLayout({
       <html lang='en'>
         <body className='{inter.className}'>
           <header>
-            <nav>
+            <nav className="container mx-auto px-4 w-full py-8 flex justify-between">
               <Link href={'/'}>Home</Link>
               <Link href={'/tours'}>Tour</Link>
             </nav>
