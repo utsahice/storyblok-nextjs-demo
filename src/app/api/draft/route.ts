@@ -1,12 +1,12 @@
 import { draftMode } from "next/headers";
-import { NextRequest } from "next/server";
 import { redirect } from "next/navigation";
-
-export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
+import { NextRequest } from "next/server";
+export const GET = async (request: NextRequest) => {
+  const { searchParams } = new URL(request.url);
   const slug = searchParams.get("slug");
 
-  (await draftMode()).enable();
+  const draft = await draftMode();
+  draft.enable();
 
   redirect(`/${slug}?${searchParams.toString()}`);
-}
+};
