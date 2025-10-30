@@ -1,4 +1,6 @@
 import { getStoryblokApi, StoryblokStory } from '@storyblok/react/rsc'
+import '@/app/components/StoryBlokProvider'
+import './layout'
 
 const fetchHomePage = async () => {
   const client = getStoryblokApi()
