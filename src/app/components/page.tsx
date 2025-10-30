@@ -1,6 +1,7 @@
 import { StoryblokComponent } from '@storyblok/react'
 
 export const Page = (params: any) => {
+  
   console.log(params)
   return (
     <main>
