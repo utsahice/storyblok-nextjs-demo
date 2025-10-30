@@ -4,7 +4,7 @@ import { getStoryblokApi, StoryblokStory } from '@storyblok/react/rsc'
 import { draftMode } from 'next/headers'
 
 const fetchHomePage = async () => {
-  const {isEnabled} = draftMode();
+  const { isEnabled } = await draftMode();
   const client = getStoryblokApi()
   if (!client) {
     throw new Error("Storyblok API client not initialized — check storyblokInit()");
