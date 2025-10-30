@@ -1,3 +1,4 @@
+import './layout'
 import '@/app/components/StoryBlokProvider'
 import { getStoryblokApi, StoryblokStory } from '@storyblok/react/rsc'
 

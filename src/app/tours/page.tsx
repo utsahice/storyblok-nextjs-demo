@@ -22,7 +22,7 @@ const fetchAllTours = async () => {
   const client = getStoryblokApi()
   const response = await client.getStories({
     content_type: 'tour',
-    version: process.env.NODE_ENV ==="development"?"draft":"published",
+    version: 'draft',
   })
   return response.data.stories
 }
