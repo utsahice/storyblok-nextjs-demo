@@ -9,7 +9,7 @@ import { Feature } from './feature'
 import { Testimonial } from './testimonial'
 import { RecommendedTours } from './recomandedtours'
 storyblokInit({
-  accessToken: process.env.STORYBLOK_API_TOKEN,
+  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN,
   use: [apiPlugin],
   components: {
     tour: Tour,
