@@ -1,10 +1,19 @@
 import { getStoryblokApi, StoryblokStory } from '@storyblok/react/rsc'
 import { RecommendedTour } from '../components/recomandedtour'
 
+export const generateStatic = async()=>{
+  const client = getStoryblokApi()
+  const response= await client.getStories({
+    content_type :"tour",
+    version :process.env.NODE_ENV==="development"?"draft":"published"
+  })
+  return response.data.stories.map((story)=>({slug:story.slug}))
+
+}
 const fetchToursPage = async () => {
   const client = getStoryblokApi()
   const response = await client.getStory(`tours`, {
-    version: 'draft',
+    version: process.env.NODE_ENV ==="development"?"draft":"published",
     resolve_relations: 'recommended_tours.tours',
   })
   return response.data.story
@@ -13,7 +22,7 @@ const fetchAllTours = async () => {
   const client = getStoryblokApi()
   const response = await client.getStories({
     content_type: 'tour',
-    version: 'draft',
+    version: process.env.NODE_ENV ==="development"?"draft":"published",
   })
   return response.data.stories
 }
